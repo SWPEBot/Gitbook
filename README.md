@@ -4,4 +4,4 @@ _Version: v2025._
 
 ## Introduction
 
-文档当前仅包含 Chrome OS 学习笔记，仅供参考
+文档当前仅包含 Chromium developer 学习笔记📚
