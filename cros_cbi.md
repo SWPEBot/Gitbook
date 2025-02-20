@@ -93,11 +93,11 @@ This is a script used by debugd to include CBI dump in user feedback reports. Cu
 
 ```bash
 # ectool cbi set SKUID_TYPE SKUID_NUMBER OEMID
-ectool cbi set 2 1 1
+ectool cbi set 2 1 4
 ```
 
 ### Write Dram Part Number
 
 ```bash
-ectool cbi set 3 dram_part_number 0
+ectool cbi set 3 dram_part_number 4
 ```
