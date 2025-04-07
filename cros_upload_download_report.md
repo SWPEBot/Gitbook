@@ -14,7 +14,7 @@
 # 上传方法:
 1. 手动upload factory logs 指令:
 ```
-# 登录至Google SFTP, 例如:sftp -P 19321 -i /home/sysadmin/pubkey_for_upload_report_to_sftp/quanta_pu4_upload_report_public_key cpfe-quanta@partnerupload.google.com
+# 登录至Google SFTP, 例如:sftp -P 19321 -i /home/sysadmin/.ssh/id_rsa cpfe-quanta@partnerupload.google.com
 sftp -P 19321 -i PATH/TO/PRIVATE/KEY USERNAME@partnerupload.google.com
 # 上传factory logs 指令
 put PATH/TO/ARCHIVE
@@ -30,6 +30,10 @@ sudo bash /home/sysadmin/pubkey_for_upload_report_to_sftp/factory_report_integra
 # 但需要配置linux定时任务crontab, 方法有如下两种:
 方法一:首先执行指令“sudo su”去进入root 用户，然后执行“crontab -u root -e” 去增加自动收集&上传的script 路径
 方法二:直接执行指令“sudo crontab -u root -e”直接使用root 启动命名并添加script路径实现定时任务
+查看当前用户的定时任务
+``crontab -l``
+查看root用户的定时任务
+``sudo crontab -u root -l``
 ```
 
 # 注意事项： 
