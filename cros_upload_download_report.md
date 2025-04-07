@@ -31,9 +31,17 @@ sudo bash /home/sysadmin/pubkey_for_upload_report_to_sftp/factory_report_integra
 方法一:首先执行指令“sudo su”去进入root 用户，然后执行“crontab -u root -e” 去增加自动收集&上传的script 路径
 方法二:直接执行指令“sudo crontab -u root -e”直接使用root 启动命名并添加script路径实现定时任务
 查看当前用户的定时任务
-``crontab -l``
+crontab -l
 查看root用户的定时任务
-``sudo crontab -u root -l``
+sudo crontab -u root -l
+```
+
+3. ubuntu22.04 + 注意事项:
+```
+sudo vi /etc/ssh/ssh_config
+编辑如下
+HostKeyAlgorithms = +ssh-rsa
+PubkeyAcceptedAlgorithms = +ssh-rsa
 ```
 
 # 注意事项： 
