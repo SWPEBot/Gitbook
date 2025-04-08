@@ -583,5 +583,17 @@ Samba 共享文件夹用户名密码:
 gooftool wipe_in_place --test_umount --shopfloor_url http://10.18.6.***:${SF_Port}
 /usr/local/factory/sh/cutoff/inform_shopfloor.sh http://10.18.6.***${SF_PORT} factory_wipe
 ```
+## 免密登陆Server(SSH)
+```
+ssh-keygen
 
+ls ~/.ssh
 
+id_rsa （私钥）
+id_rsa.pub (公钥)
+```
+## 上传公钥
+```
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@{ip}
+
+```
