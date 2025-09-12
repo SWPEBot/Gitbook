@@ -106,4 +106,11 @@ gsctool ti50.prepvt
 
 ```
 
+_Old:_
+```bash
+sudo I_NEED_SERVOD=1 servod -b {board}
+
+#9999
+```
+
 
