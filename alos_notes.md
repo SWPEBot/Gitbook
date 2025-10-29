@@ -53,18 +53,18 @@ adb install -d -g -t app/build/outputs/apk/debug/app-debug.apk
 ```
 
 ## Debugging tips
-Show logs for a specific app
+显示特定应用程序的日志
 ```sh
 $ adb logcat --pid=$(adb shell pidof <package_name>) -v color
 ```
 Shell
-Example for factory app
+例如Factory APP
 ```sh
 $ adb logcat --pid=$(adb shell pidof com.google.android.factory.factory) -v
 color
 ```
 
-## Generate signing key
+## 生成APK签名密钥 (待验证)
 By default, Soong signs platform applications with the key located in
 ``$PDK_ROOT/build/target/product/security/``. The following commands generate the
 keystore for Gradle as $PATH_OF_OUTPUT_KEYSTORE_FILE:
