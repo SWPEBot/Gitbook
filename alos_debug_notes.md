@@ -30,20 +30,20 @@ Enter interactive shell
 ```sh
 adb shell
 ```
-(Optional) AL Post Settings
-Turning on the developer mode
-To turn on the developer mode, you need to
-1. Go to Settings
-2. Select About phone
-3. Scroll down to Build number
-4. Tap Build number seven times
-With developer mode on, you can enable some useful developer functions in “Developer
-Options” (settings -> search for “developer options”), such as “Stay awake”
+
+##开启开发者模式
+要开启开发者模式，您需要：
+1. 进入“设置”
+2. 选择“关于手机”
+3. 向下滚动至“版本号”
+4. 连续点击“版本号”七次
+
+开启开发者模式后，您可以在“开发者选项”（设置 -> 搜索“开发者选项”）中启用一些实用的开发者功能，例如“保持唤醒状态”。
 
 
-##Build and Run without IDEs
-1. Follow Step 4 to setup local properties
-2. Run the following command in
+##使用指令生成APK
+
+1. Run the following command in
 $PDK_ROOT/vendor/google_shared/packages/desktop/Factory/factory/ to build the
 app
 ```sh
