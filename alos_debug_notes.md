@@ -1,5 +1,3 @@
-# Android Notes
-
 ## Connect to DUT whit ADB
 
 ```sh
@@ -31,7 +29,7 @@ Enter interactive shell
 adb shell
 ```
 
-##开启开发者模式
+## 开启开发者模式
 要开启开发者模式，您需要：
 1. 进入“设置”
 2. 选择“关于手机”
@@ -41,7 +39,7 @@ adb shell
 开启开发者模式后，您可以在“开发者选项”（设置 -> 搜索“开发者选项”）中启用一些实用的开发者功能，例如“保持唤醒状态”。
 
 
-##使用指令生成APK
+## 使用指令生成APK
 
 1. Run the following command in
 $PDK_ROOT/vendor/google_shared/packages/desktop/Factory/factory/ to build the
@@ -54,7 +52,7 @@ app
 adb install -d -g -t app/build/outputs/apk/debug/app-debug.apk
 ```
 
-##Debugging tips
+## Debugging tips
 Show logs for a specific app
 ```sh
 $ adb logcat --pid=$(adb shell pidof <package_name>) -v color
@@ -66,7 +64,7 @@ $ adb logcat --pid=$(adb shell pidof com.google.android.factory.factory) -v
 color
 ```
 
-##Generate signing key
+## Generate signing key
 By default, Soong signs platform applications with the key located in
 $PDK_ROOT/build/target/product/security/. The following commands generate the
 keystore for Gradle as $PATH_OF_OUTPUT_KEYSTORE_FILE:
@@ -86,7 +84,7 @@ $ keytool -importkeystore \
 -alias AndroidDebugKey
 ```
 
-##Setup properties for build script
+## Setup properties for build script
 Add $PDK_ROOT/vendor/google_shared/packages/desktop/Factory/factory/local.properties
 with the following lines under
 ```sh
