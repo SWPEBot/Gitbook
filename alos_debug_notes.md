@@ -42,7 +42,7 @@ adb shell
 ## 使用指令生成APK
 
 1. Run the following command in
-$PDK_ROOT/vendor/google_shared/packages/desktop/Factory/factory/ to build the
+``$PDK_ROOT/vendor/google_shared/packages/desktop/Factory/factory/`` to build the
 app
 ```sh
 ./gradlew assembleDebug
@@ -66,7 +66,7 @@ color
 
 ## Generate signing key
 By default, Soong signs platform applications with the key located in
-$PDK_ROOT/build/target/product/security/. The following commands generate the
+``$PDK_ROOT/build/target/product/security/``. The following commands generate the
 keystore for Gradle as $PATH_OF_OUTPUT_KEYSTORE_FILE:
 ```sh
 $ openssl pkcs8 -inform DER -nocrypt -in
@@ -85,7 +85,7 @@ $ keytool -importkeystore \
 ```
 
 ## Setup properties for build script
-Add $PDK_ROOT/vendor/google_shared/packages/desktop/Factory/factory/local.properties
+Add ``$PDK_ROOT/vendor/google_shared/packages/desktop/Factory/factory/local.properties``
 with the following lines under
 ```sh
 sdk.dir={**absoulute path** to your sdk directory} // usually ~/Android/Sdk,
