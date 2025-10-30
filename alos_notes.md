@@ -57,7 +57,7 @@ adb install -d -g -t app/build/outputs/apk/debug/app-debug.apk
 ```sh
 $ adb logcat --pid=$(adb shell pidof <package_name>) -v color
 ```
-Shell
+
 例如Factory APP
 ```sh
 $ adb logcat --pid=$(adb shell pidof com.google.android.factory.factory) -v
