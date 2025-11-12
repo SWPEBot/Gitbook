@@ -86,37 +86,18 @@ By default, Soong signs platform applications with the key located in
 ``$PDK_ROOT/build/target/product/security/``. The following commands generate the
 keystore for Gradle as $PATH_OF_OUTPUT_KEYSTORE_FILE:
 ```sh
-$ openssl pkcs8 -inform DER -nocrypt -in
-$PDK_ROOT/build/target/product/security/platform.pk8 -out platform.key
-$ openssl pkcs12 -export -in
-$PDK_ROOT/build/target/product/security/platform.x509.pem -inkey platform.key
--out platform.p12 -name AndroidDebugKey -password pass:android
-$ keytool -importkeystore \
--deststorepass android \
--destkeypass android \
--destkeystore $PATH_OF_OUTPUT_KEYSTORE_FILE \
--srckeystore platform.p12 \
--srcstoretype PKCS12 \
--srcstorepass android \
--alias AndroidDebugKey
+$ openssl pkcs8 -inform DER -nocrypt -in $PDK_ROOT/build/target/product/security/platform.pk8 -out platform.key
+$ openssl pkcs12 -export -in ~/aluminiumos/build/target/product/security/platform.x509.pem -inkey platform.key -out platform.p12 -name AndroidDebugKey -password pass:android
+$ keytool -importkeystore -deststorepass android -destkeypass android -destkeystore $PATH_OF_OUTPUT_KEYSTORE_FILE -srckeystore platform.p12 -srcstoretype PKCS12 -srcstorepass android -alias AndroidDebugKey
 ```
 
-## Setup properties for build script
-Add ``$PDK_ROOT/vendor/google_shared/packages/desktop/Factory/factory/local.properties``
-with the following lines under
+## 创建local.properties
+touch ``$PDK_ROOT/vendor/google_shared/packages/desktop/Factory/factory/local.properties``
+
 ```sh
-sdk.dir={**absoulute path** to your sdk directory} // usually ~/Android/Sdk,
-this should match the path you entered when you install SDK in step 2
-keystorePath={**absoulute path** to your key} // this should the same key that
-signs the rest of the Android platform
-```
-The sdk.dir is the absolute path to the directory of installed sdk. This should match the path you
-entered in step 2.
-The keystorePath is the absolute path of the generated keystore
-file($PATH_OF_OUTPUT_KEYSTORE_FILE) which is created in step 4.
 Example:
 ```sh
-sdk.dir=/usr/local/google/home/myusername/Android/Sdk
-keystorePath=/usr/local/google/home/myusername/pdk/vendor/google_shared/package
-s/desktop/Factory/factory/platform.keystore
+sdk.dir=/home/lyn/Android/Sdk
+keystorePath=/home/lyn/aluminiumos/test/ocicat_key
 ```
+keystorePath 跟随生成APK签名密钥的**OUTPUT_KEYSTORE_FILE**  
