@@ -63,7 +63,24 @@ $ adb logcat --pid=$(adb shell pidof <package_name>) -v color
 $ adb logcat --pid=$(adb shell pidof com.google.android.factory.factory) -v
 color
 ```
+## Android SDK 环境配置
+```sh
+echo 'export ANDROID_HOME=/home/$USER/Android/Sdk' >> ~/.zshrc
+echo 'export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH' >> ~/.zshrc
 
+echo 'export ANDROID_HOME=/home/$USER/Android/Sdk' >> ~/.bashrc
+echo 'export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH' >> ~/.bashrc
+
+source ~/.zshrc    source ~/.bashrc
+
+Ex:
+export PDK_ROOT=/home/lyn/aluminiumos
+export KEYSTORE_ROOT=/home/lyn/aluminiumos/ocicat/Test
+export KEY_NAME=ocicat_key
+export ANDROID_HOME=/home/lyn/Android/Sdk
+export ANDROID_HOME=/path/to/your/android/sdk
+export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+```
 ## 生成APK签名密钥 (待验证)
 By default, Soong signs platform applications with the key located in
 ``$PDK_ROOT/build/target/product/security/``. The following commands generate the
