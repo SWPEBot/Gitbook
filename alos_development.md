@@ -107,8 +107,7 @@ touch ``$PDK_ROOT/vendor/google_shared/packages/desktop/Factory/factory/local.pr
 
 ```sh
 Example:
-```sh
 sdk.dir=/home/lyn/Android/Sdk
 keystorePath=/home/lyn/aluminiumos/test/ocicat_key
 ```
-keystorePath 跟随生成APK签名密钥的**OUTPUT_KEYSTORE_FILE**  
+keystorePath 跟随生成APK签名密钥的**OUTPUT_KEYSTORE_FILE** 
