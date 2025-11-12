@@ -88,8 +88,19 @@ keystore for Gradle as $PATH_OF_OUTPUT_KEYSTORE_FILE:
 ```sh
 $ openssl pkcs8 -inform DER -nocrypt -in $PDK_ROOT/build/target/product/security/platform.pk8 -out platform.key
 $ openssl pkcs12 -export -in ~/aluminiumos/build/target/product/security/platform.x509.pem -inkey platform.key -out platform.p12 -name AndroidDebugKey -password pass:android
-$ keytool -importkeystore -deststorepass android -destkeypass android -destkeystore $PATH_OF_OUTPUT_KEYSTORE_FILE -srckeystore platform.p12 -srcstoretype PKCS12 -srcstorepass android -alias AndroidDebugKey
+$ keytool -importkeystore \
+-deststorepass android \
+-destkeypass android \
+-destkeystore $KEYSTORE_ROOT/$KEY_NAME \
+-srckeystore platform.p12 \
+-srcstoretype PKCS12 \
+-srcstorepass android \
+-alias AndroidDebugKey
 ```
+**预期输出**:
+
+``Importing keystore platform.p12 to /home/lyn/aluminiumos/test/ocicat_key...``
+
 
 ## 创建local.properties
 touch ``$PDK_ROOT/vendor/google_shared/packages/desktop/Factory/factory/local.properties``
