@@ -1,4 +1,4 @@
-## Connect to DUT whit ADB
+## ADB连接DUT
 
 ```sh
 adb devices      #device name PRMFRCGI5XV8INL
@@ -24,7 +24,7 @@ On Host
 ```sh
 adb connect <dut-ip-address>
 ```
-Enter interactive shell
+进入DUT Shell
 ```sh
 adb shell
 ```
@@ -52,7 +52,7 @@ app
 adb install -d -g -t app/build/outputs/apk/debug/app-debug.apk
 ```
 
-## Debugging tips
+## Debug 方式
 显示特定应用程序的日志
 ```sh
 $ adb logcat --pid=$(adb shell pidof <package_name>) -v color
@@ -81,7 +81,7 @@ export ANDROID_HOME=/home/lyn/Android/Sdk
 export ANDROID_HOME=/path/to/your/android/sdk
 export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 ```
-## 生成APK签名密钥 (待验证)
+## 生成APK签名密钥
 By default, Soong signs platform applications with the key located in
 ``$PDK_ROOT/build/target/product/security/``. The following commands generate the
 keystore for Gradle as $PATH_OF_OUTPUT_KEYSTORE_FILE:
@@ -111,3 +111,12 @@ sdk.dir=/home/lyn/Android/Sdk
 keystorePath=/home/lyn/aluminiumos/test/ocicat_key
 ```
 keystorePath 跟随生成APK签名密钥的**OUTPUT_KEYSTORE_FILE** 
+
+
+## Android Studio 
+
+**参考官方网站** [Andriod Developer](https://developer.android.com/studio/install?hl=zh-cn)
+
+
+
+
