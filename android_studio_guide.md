@@ -33,7 +33,7 @@ sudo yum install zlib.i686 ncurses-libs.i686 bzip2-libs.i686
 ## 安装虚拟机运行时出现错误The emulator process for AVD Medium_Tablet has terminated  
 ```sh
 cd ~/.android/avd/{device_name}/config.ini
-加入 
+加入如下内容 
 hw.gpu.enabled=no
 hw.gpu.mode=off
 ```
