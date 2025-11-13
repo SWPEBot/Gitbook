@@ -1,4 +1,4 @@
-## Android Studio User Guide
+# Android Studio User Guide
 
 
 **Linux**
@@ -9,7 +9,7 @@ Linux 的系统要求如下：
 - RAM	Studio：8 GB Studio 和模拟器：16 GB	至少有 32 GB 的 RAM
 - CPU	必须支持虚拟化（Intel VT-x 或 AMD-V，在 BIOS 中启用）。
 
-# 如需在 Linux 上安装 Android Studio，请按以下步骤操作：
+## 如需在 Linux 上安装 Android Studio，请按以下步骤操作：
 
 将您下载的 .tar.gz 文件解压缩到您应用的相应位置，例如 /usr/local/ 中（用于用户个人资料）或者 /opt/ 中（用于共享用户）。
 对于 64 位版本的 Linux，请先安装 64 位计算机所需的库。
@@ -30,7 +30,7 @@ sudo yum install zlib.i686 ncurses-libs.i686 bzip2-libs.i686
 ```
 
 
-# 安装虚拟机运行时出现错误The emulator process for AVD Medium_Tablet has terminated  
+## 安装虚拟机运行时出现错误The emulator process for AVD Medium_Tablet has terminated  
 ```sh
 cd ~/.android/avd/{device_name}/config.ini
 加入 
