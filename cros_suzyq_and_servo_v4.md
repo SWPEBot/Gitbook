@@ -108,6 +108,7 @@ sudo flashrom -p raiden_debug_spi:target=AP -w bios.bin
 
 ## 如何不拆電池即可Enable Factory Mode
 
+**CCD (Case Closed debug)已结案调试**
 
 ```bash
 #注意事項,不拆電池即可Enable Factory Mode,必須基於DUT Cr50 version 是0.3.9+ / 0.4.9+
