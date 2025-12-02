@@ -76,14 +76,14 @@ git config --global user.name "Your Name"
 ### Gerrit 账户设置
 
 1. 設置Chromium Gerrit Git repositories認證凭据, 步驟如下：
-    *  訪問 <https://chromium-review.googlesource.com/new-password>
+    *  訪問 <https://chromium-review.googlesource.com/settings/#EmailAddresses>
     *  使用用于 git 提交的电子邮件登录, 通常为 "you@quanta.corp-partner.google.com" 账户
     *  根据平台复制文本框的内容到 Terminal後按Enter 鍵即可．
     *  验证：运行`git ls-remote https://chromium.googlesource.com/chromiumos/manifest.git`
         > 命令应该不会提示输入任何凭据, 应该只是打印出的 git 分支列表
 
 2. 設置Chrome Internal Gerrit Git repositories認證凭据, 步驟如下：
-    *  訪問 <https://chrome-internal-review.googlesource.com/new-password>
+    *  訪問 <https://chrome-internal-review.googlesource.com/settings/#EmailAddresses>
     *  使用用于 git 提交的电子邮件登录, 通常为 "you@quanta.corp-partner.google.com" 账户
     *  根据平台复制文本框的内容到 Terminal後按Enter 鍵即可．
     *  验证：run`git ls-remote https://chrome-internal.googlesource.com/<REPO_PATH>.git`
