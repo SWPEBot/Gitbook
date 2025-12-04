@@ -51,13 +51,13 @@ git reset --hard
 git clean -fd  or git checkout . && git clean -xdf
 ```
 Ex:  repo sync vendor/google_shared/packages/desktop/Factory
-b. 由于多线程拉取代码，导致repo checkout file fail，解决方法如下
+- b. 由于多线程拉取代码，导致repo checkout file fail，解决方法如下
 ```bash
 rm -rf .repo/xxxxx/xxxxx/xxxxx.git
 repo sync -c xxxxx/xxxxx/xxxxx
 ```
-Ex:repo sync -c external/libtextclassifier -j1
-   repo sync -c external/libsrtp2 -j1
+Ex:- repo sync -c external/libtextclassifier -j1
+   - repo sync -c external/libsrtp2 -j1
 
 
 
