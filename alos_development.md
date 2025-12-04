@@ -41,8 +41,7 @@ popd
 ```bash
 repo sync -c -j99  ## 若出现单个路径无法同步 repo sync -c {path}
 ```
-**注意：多线程同步必要有一些文件同步失败**
-**repo sync issue:**
+**注意：多线程同步必要有一些文件同步失败,处理方法如下**
 - a.修改source code 未submit,再次repo sync 出现checkout fail 
 ```bash
 enter path
