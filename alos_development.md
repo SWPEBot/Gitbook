@@ -1,11 +1,11 @@
-## Setup AOSP 
+## 设置安卓源代码快速指南
 
-安装必要的插件
+1. 安装必要的插件
 ```bash
 sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev libc6-dev-i386 x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
 ```
 
-Generate git cookies
+2. Generate git cookies
 
 首次，用户需要更新 partner-android 代码库的凭据,请按照以下步骤生成 .gitcookies 文件，以便访问 partner-android 并同步代码.
 
@@ -24,26 +24,25 @@ partner-android-review.googlesource.com,FALSE,/,TRUE,2147483647,o,git-yang.lyn.i
 __END__
 eval 'set -o history' 2>/dev/null || unsetopt HIST_IGNORE_SPACE 2>/dev/null
 ```
-## Setup Code
-
-1. Repo init:
+3. Repo init:
 ```bash
 export BOARD=ocicat
 mkdir -p alos/${BOARD} &&  cd alos/${BOARD}
 REPO_ALLOW_SHALLOW=0 repo init -c -u https://partner-android.googlesource.com/platform/vendor/pdk/${BOARD}/manifest/ -b ${BOARD}-main-fs -m default_with_gms.xml --partial-clone --partial-clone-exclude=platform/frameworks/base --clone-filter=blob:limit=10M
 ```
-2. ln -sf vendor/google/desktop/dev/kernel/replace_prebuilts.py
+4. ln -sf vendor/google/desktop/dev/kernel/replace_prebuilts.py
 
 ```bash
 pushd vendor/google_shared/packages/desktop/  ##跳转目录到pdk
 git clone -b ${BOARD}-main-fs "https://partner-android.googlesource.com/platform/vendor/unbundled_google/packages/desktop/RepairPrebuilt"
 popd
 ```
-3. 完整同步
+5. 完整同步
 ```bash
 repo sync -c -j99  ## 若出现单个路径无法同步 repo sync -c {path}
 ```
-repo sync issue:
+**注意：多线程同步必要有一些文件同步失败**
+**repo sync issue:**
 - a.修改source code 未submit,再次repo sync 出现checkout fail 
 ```bash
 enter path
