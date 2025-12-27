@@ -53,6 +53,10 @@ Writing new image to bios_unlock.bin
 GPR0 protection is now disabled    
 #出现now disabled字样表示原BIOS为LockME,-O生成的为UnlockME BIOS. 
 #如果是GPR0 protection is already disabled. 表示原BIOS已经是UnlockME的状态.
+
+ifdtool -p adl -c bios.bin   # -c check GPRO ststus  Enable -> ME Lock  Disable -> ME unlock
+
+PVT阶段 BIOS 默认Lock ME, 测试流程也会保持ME Lock 到WIPE
 ```
 
 ## Repack FirmwareUpdater 需要上传至DL bundle(set gbb_flags disable lid)
