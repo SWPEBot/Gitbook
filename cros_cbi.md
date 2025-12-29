@@ -101,3 +101,22 @@ ectool cbi set 2 1 4
 ```bash
 ectool cbi set 3 dram_part_number 4
 ```
+### Build CBI Bin
+
+```bash
+cbi-util create --file eeprom.bin --board_version BOARD_VERSION --sku_id SKU_ID --fw_config FW_CONFIG --size 256
+ex: cbi-util create --file eeprom.bin --board_version 0x3 --sku_id 0x7fffffff --fw_config 0xfffff --size 256
+CBI image is created successfully
+
+read
+cbi-util show --file cbi.bin
+```
+
+### CBI in EC 
+
+```bash
+write 
+cbfstool ec.bin write -u -r CBI -f eeprom.bin
+read
+cbfstool ec.bin read -r CBI -f cbi.bin
+```
