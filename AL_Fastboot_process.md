@@ -40,5 +40,9 @@ image_tool.py \
 | /17  | 15  | 32768 |
 | /16  | 16  | 65536 |
 
-## Fastboot with DOME / UMPIRE server
+**ScanInterval**：调用 nmap 扫描 ``dutIpAddrs`` 中所有 IP 地址的间隔。默认10秒  
+i. 10 秒是 1 个 CIDR 范围的推荐间隔。如果使用更多CIDR范围，则可能需要增加间隔。
 
+**BoardName**：填写 DUT 的型号名称，因为新设备中没有“板”的概念。用户空间 fastboot 使用此字段来检查 DUT 是否是我们要刷写的目标设备。
+
+**ModelName**：待测设备 (DUT) 的型号名称，固件 fastboot 使用此名称检查 DUT 是否为要刷写的目标设备。
