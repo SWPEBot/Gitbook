@@ -27,7 +27,7 @@ image_tool.py \
 目前只能逐个文件上传，无法bundle 方式完成
 ## Set fastboot Service
 **dutipaddrs:** 填写fastboot 需要扫描的 IP 地址。此字段接受单个 IP 地址或 CIDR 范围。要添加多个 IP 地址，请点击'+'  例如:172.18.14.137/24 
-常见的CIDR
+## 常见的CIDR   IP计算方式: ipv4 一共32位  IP个数2^(32-CIDR)  例如 2^(32-24)=256
 | CIDR | 主机位 | 地址总数  |
 | ---- | --- | ----- |
 | /24  | 8   | 256   |
