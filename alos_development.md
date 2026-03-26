@@ -9,7 +9,7 @@ sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-d
 
 首次，用户需要更新 partner-android 代码库的凭据,请按照以下步骤生成 .gitcookies 文件，以便访问 partner-android 并同步代码.
 
-[android_review_code](https://partner-android-review.googlesource.com/settings/)  enter **Obtain password (opens in a new tab)**
+[android_review_code](https://arsp-review.googlesource.com/dashboard/self)  enter **Obtain password (opens in a new tab)**
 
 ```bash
 eval 'set +o history' 2>/dev/null || setopt HIST_IGNORE_SPACE 2>/dev/null
