@@ -172,7 +172,7 @@ Example:
 sdk.dir=/home/lyn/Android/Sdk
 keystorePath=$PDK_ROOT/vendor/google/certs/devkeys/platform.keystore
 ```
-keystorePath 跟随生成APK签名密钥的**OUTPUT_KEYSTORE_FILE** 
+-keystorePath 跟随生成APK签名密钥的**OUTPUT_KEYSTORE_FILE** -
 
 
 ## Android Studio 
