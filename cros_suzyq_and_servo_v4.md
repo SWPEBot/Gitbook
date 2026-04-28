@@ -72,10 +72,12 @@ _chroot 环境下:_
 
 ```bash
 sudo emerge chrome-cr50   #需要连接VPN
+after 2023
+sudo emerge chromeos-ti50 hdctools 
 
-sudo gsctool -a /opt/google/cr50/firmware/cr50.bin.prod or local_build.bin
+sudo /usr/sbin/gsctool -a /opt/google/ti50/firmware/ti50.bin.prod or local_build.bin
 
-#You might need to use cr50.bin.prepvt if your device is pvt 
+#You might need to use ti50.bin.prepvt if your device is pvt 
 
 ```
 
