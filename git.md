@@ -144,8 +144,6 @@ repo sync 提示 `xxx/xxx checkout error`.
 ### 暂存本地git 修改(更合适ARSP)
 
 ```bash
-repo sync -c --autostash
-
 # 进入修改文件的路径
 git stash -u
 # 同步完成后
