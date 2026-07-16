@@ -146,9 +146,10 @@ repo sync 提示 `xxx/xxx checkout error`.
 ```bash
 repo sync -c --autostash
 
-进入修改文件的路径
+# 进入修改文件的路径
 git stash -u
-同步完成后
+# 同步完成后
 git stash pop
-如果你只想恢复而暂不删除记录，可以使用 git stash apply
+# 如果你只想恢复而暂不删除记录，可以使用
+git stash apply
 ```
