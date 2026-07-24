@@ -1,4 +1,4 @@
-# Hardware Descriptor DVT 工厂流程用户指南（中文译本）
+# Hardware Descriptor DVT
 
 > **原文标题**：[EXTERNAL] Hardware Descriptor DVT Factory Process User Guide  
 > **状态**：Ready for publish  
@@ -94,7 +94,7 @@ Device（机型项目）
 | **MFG SKU ID** | 制造 SKU 编号 | ODM 为该 MFG SKU 定义的 ID。 |
 | **MLB** | Main Logic Board（主板） | 装有 **SoC** 的 PCBA。 |
 | **Daughter board (DB)** | 子板 / 副板 | 不含 SoC 的 PCBA。 |
-| **Key components** | 关键件 | ODM 提供给 Google 的制造数据里列出的硬件件。 |
+| **Key components** | 关键件 | ODM 提供给 Google 的制造数据里列出的硬件。 |
 | **Component type** | 部件类型 | 规范类型，如 `"eDP Panel"`、`"Battery pack"`。一个 key component 可对应一个或多个 component type（例如同时是 eDP Panel + Touchscreen）。 |
 | **Part number (PN)** | 料号 | ODM 为关键件或 PCBA 分配的料号。 |
 
