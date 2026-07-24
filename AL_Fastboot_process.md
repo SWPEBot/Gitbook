@@ -7,7 +7,8 @@
 ./cros_docker install
 ./cros_dcoker run
 ```
-- 默认端口http://localhost:8000/ 
+- 默认端口http://localhost:8000/
+- 勾选Config - ``Broadcast Ping for DUT discovery``
 - 创建项目并勾选 **Is this an Andorid project** 
 - Fastboot 上传Dome必要文件 **android_apk android_preflash_img (*.img) gpt_bin (*.bin) ota_zip (*.zip)**
 - **android_apk** from PDK local built
@@ -61,7 +62,8 @@ fastboot -s tcp:{ip}:5554 oem write-ufs-descriptor:1,0
 ......Reboot DUT
 ```
 **broadcastPing**: 添加网卡名例如enp130s0 网卡网关例如10.17.5.255
-
+**clearSecureStorage**: 清除桌面安全数据针对OOBE重新安装 desktop_security_storage，desktop_security_persist 
+**umpireGrpc**: 默认关闭，必须开启用于同步服务器数据
 
 ## Set 
 
