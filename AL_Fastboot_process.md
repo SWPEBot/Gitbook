@@ -65,6 +65,20 @@ fastboot -s tcp:{ip}:5554 oem write-ufs-descriptor:1,0
 **clearSecureStorage**: 清除桌面安全数据针对OOBE重新安装 desktop_security_storage，desktop_security_persist 
 **umpireGrpc**: 默认关闭，必须开启用于同步服务器数据
 
-## Set 
+- log path：/cros_docker/umpire/{project_name}/log/fastboot_service.log
+ 若遇到没有log，则需要重新开关 ``active``
 
-
+## fastboot process
+- 进入bootloader: 首次开机若storage没有OS，则会自动进入fastboot mode，手动则需要按下``ctrl+f``
+- adb 方式
+```bash
+adb reboot bootloader
+```
+- 确认product，userspace(no)，flash MBR & GRT
+- 进入fastbootd
+```bash
+fastboot -s tcp{ip}:5554 reboot fastboot
+```
+- 再次获取product,userspace(yes)
+- fastboot flashall 全量刷入``super.img``
+- 完成后重启设备
