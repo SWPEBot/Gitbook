@@ -10,10 +10,10 @@
 - 默认端口http://localhost:8000/ 
 - 创建项目并勾选 **Is this an Andorid project** 
 - Fastboot 上传Dome必要文件 **android_apk android_preflash_img (*.img) gpt_bin (*.bin) ota_zip (*.zip)**
-**android_apk** from PDK local built
-**android_preflash_image** from image_tool.py built
-**gpt_bin** from image_tool.py built
-**ota_zip** from [andorid ci](ci.andorid.com)
+- **android_apk** from PDK local built
+- **android_preflash_image** from image_tool.py built
+- **gpt_bin** from image_tool.py built
+- **ota_zip** from [andorid ci](ci.andorid.com)
 ```bash
 ./tools/image_tool.py  -d ./android-desktop_image.bin -o ./preflash.img -t ./ocicat-ota.zip -g ./gpt.bin --factory_config ./tools/proto/factory_config.txtpb --preload_partition_zip ./ocicat-img.zip --gpt_sector_size 4096 --factory_app {factoryapp}
 ```
