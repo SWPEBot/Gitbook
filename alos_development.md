@@ -32,8 +32,8 @@ mkdir -p alos/${BOARD} &&  cd alos/${BOARD}
 REPO_ALLOW_SHALLOW=0 repo init -c -u https://arsp.googlesource.com/platform/manifest --use-superproject --partial-clone --partial-clone-exclude=platform/frameworks/base --clone-filter=blob:limit=10M -b device/ocicat/main
 # Git Branch(Q)
 REPO_ALLOW_SHALLOW=0 repo init -c -u https://arsp.googlesource.com/platform/manifest/device/${BOARD} --partial-clone --clone-filter=blob:limit=10M -b refs/buildid/XXXXXXXX
-xxxxxx为ID 参考 https://arsp.googlesource.com/platform/manifest/device/ocicat
 ```
+[xxxxxx为ID](https://arsp.googlesource.com/platform/manifest/device/ocicat)
 4. ln -sf vendor/google/desktop/dev/kernel/replace_prebuilts.py
 
 ```bash
