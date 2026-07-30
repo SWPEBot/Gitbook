@@ -1,4 +1,4 @@
-# CBI: CrOS Board Info
+# CrOS Board Info
 
 **Useful links**
 [CBI: CrOS Board Info](https://chromium.googlesource.com/chromiumos/docs/+/master/design_docs/cros_board_info.md)
