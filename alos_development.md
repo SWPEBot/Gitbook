@@ -28,7 +28,11 @@ eval 'set -o history' 2>/dev/null || unsetopt HIST_IGNORE_SPACE 2>/dev/null
 ```bash
 export BOARD=ocicat
 mkdir -p alos/${BOARD} &&  cd alos/${BOARD}
-REPO_ALLOW_SHALLOW=0 repo init -c -u https://partner-android.googlesource.com/platform/vendor/pdk/${BOARD}/manifest/ -b ${BOARD}-main-fs -m default_with_gms.xml --partial-clone --partial-clone-exclude=platform/frameworks/base --clone-filter=blob:limit=10M
+# Git Main 
+REPO_ALLOW_SHALLOW=0 repo init -c -u https://arsp.googlesource.com/platform/manifest --use-superproject --partial-clone --partial-clone-exclude=platform/frameworks/base --clone-filter=blob:limit=10M -b device/ocicat/main
+# Git Branch(Q)
+REPO_ALLOW_SHALLOW=0 repo init -c -u https://arsp.googlesource.com/platform/manifest/device/${BOARD} --partial-clone --clone-filter=blob:limit=10M -b refs/buildid/XXXXXXXX
+xxxxxx为ID 参考 https://arsp.googlesource.com/platform/manifest/device/ocicat
 ```
 4. ln -sf vendor/google/desktop/dev/kernel/replace_prebuilts.py
 
@@ -39,7 +43,7 @@ popd
 ```
 5. 完整同步
 ```bash
-repo sync -c -j99  ## 若出现单个路径无法同步 repo sync -c {path}
+repo sync -c -j $(nproc) --optimized-fetch -d --force-checkout --force-sync 
 ```
 **注意：多线程同步必要有一些文件同步失败,处理方法如下**
 - a.修改source code 未submit,再次repo sync 出现checkout fail 
