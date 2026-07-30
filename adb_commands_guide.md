@@ -1,46 +1,50 @@
+---
+icon: right-long
+---
+
 # ADB 常用指令完整速查手册
 
 > ADB = Android Debug Bridge，用于通过电脑调试、控制 Android 设备。
 
----
+***
 
 ## 目录
 
-- [1. 设备连接与状态](#1-设备连接与状态)
-- [2. 多设备指定](#2-多设备指定)
-- [3. 无线调试 / TCP 连接](#3-无线调试--tcp-连接)
-- [4. Shell 相关](#4-shell-相关)
-- [5. 文件传输](#5-文件传输)
-- [6. APK 安装与卸载](#6-apk-安装与卸载)
-- [7. 应用包管理 pm](#7-应用包管理-pm)
-- [8. 启动 Activity / Service / Broadcast](#8-启动-activity--service--broadcast)
-- [9. 输入模拟 input](#9-输入模拟-input)
-- [10. 截图与录屏](#10-截图与录屏)
-- [11. 日志 logcat](#11-日志-logcat)
-- [12. dumpsys 系统信息](#12-dumpsys-系统信息)
-- [13. 设备信息查询](#13-设备信息查询)
-- [14. 网络相关](#14-网络相关)
-- [15. 端口转发](#15-端口转发)
-- [16. Bugreport / 诊断](#16-bugreport--诊断)
-- [17. 进程与性能](#17-进程与性能)
-- [18. settings 系统设置](#18-settings-系统设置)
-- [19. 常亮 / 不息屏设置](#19-常亮--不息屏设置)
-- [20. 电源与重启](#20-电源与重启)
-- [21. Fastboot 相关](#21-fastboot-相关)
-- [22. SQLite 数据库](#22-sqlite-数据库)
-- [23. run-as 调试应用数据](#23-run-as-调试应用数据)
-- [24. UI 自动化辅助](#24-ui-自动化辅助)
-- [25. 剪贴板](#25-剪贴板)
-- [26. 模拟 GPS / 定位](#26-模拟-gps--定位)
-- [27. 模拟器 adb emu](#27-模拟器-adb-emu)
-- [28. 权限与 AppOps](#28-权限与-appops)
-- [29. 存储相关](#29-存储相关)
-- [30. 账号、用户、多用户](#30-账号用户多用户)
-- [31. 常用组合命令](#31-常用组合命令)
-- [32. 常见问题处理](#32-常见问题处理)
-- [33. 最常用 20 条](#33-最常用-20-条)
+* [1. 设备连接与状态](adb_commands_guide.md#1-设备连接与状态)
+* [2. 多设备指定](adb_commands_guide.md#2-多设备指定)
+* [3. 无线调试 / TCP 连接](adb_commands_guide.md#3-无线调试--tcp-连接)
+* [4. Shell 相关](adb_commands_guide.md#4-shell-相关)
+* [5. 文件传输](adb_commands_guide.md#5-文件传输)
+* [6. APK 安装与卸载](adb_commands_guide.md#6-apk-安装与卸载)
+* [7. 应用包管理 pm](adb_commands_guide.md#7-应用包管理-pm)
+* [8. 启动 Activity / Service / Broadcast](adb_commands_guide.md#8-启动-activity--service--broadcast)
+* [9. 输入模拟 input](adb_commands_guide.md#9-输入模拟-input)
+* [10. 截图与录屏](adb_commands_guide.md#10-截图与录屏)
+* [11. 日志 logcat](adb_commands_guide.md#11-日志-logcat)
+* [12. dumpsys 系统信息](adb_commands_guide.md#12-dumpsys-系统信息)
+* [13. 设备信息查询](adb_commands_guide.md#13-设备信息查询)
+* [14. 网络相关](adb_commands_guide.md#14-网络相关)
+* [15. 端口转发](adb_commands_guide.md#15-端口转发)
+* [16. Bugreport / 诊断](adb_commands_guide.md#16-bugreport--诊断)
+* [17. 进程与性能](adb_commands_guide.md#17-进程与性能)
+* [18. settings 系统设置](adb_commands_guide.md#18-settings-系统设置)
+* [19. 常亮 / 不息屏设置](adb_commands_guide.md#19-常亮--不息屏设置)
+* [20. 电源与重启](adb_commands_guide.md#20-电源与重启)
+* [21. Fastboot 相关](adb_commands_guide.md#21-fastboot-相关)
+* [22. SQLite 数据库](adb_commands_guide.md#22-sqlite-数据库)
+* [23. run-as 调试应用数据](adb_commands_guide.md#23-run-as-调试应用数据)
+* [24. UI 自动化辅助](adb_commands_guide.md#24-ui-自动化辅助)
+* [25. 剪贴板](adb_commands_guide.md#25-剪贴板)
+* [26. 模拟 GPS / 定位](adb_commands_guide.md#26-模拟-gps--定位)
+* [27. 模拟器 adb emu](adb_commands_guide.md#27-模拟器-adb-emu)
+* [28. 权限与 AppOps](adb_commands_guide.md#28-权限与-appops)
+* [29. 存储相关](adb_commands_guide.md#29-存储相关)
+* [30. 账号、用户、多用户](adb_commands_guide.md#30-账号用户多用户)
+* [31. 常用组合命令](adb_commands_guide.md#31-常用组合命令)
+* [32. 常见问题处理](adb_commands_guide.md#32-常见问题处理)
+* [33. 最常用 20 条](adb_commands_guide.md#33-最常用-20-条)
 
----
+***
 
 ## 1. 设备连接与状态
 
@@ -64,7 +68,7 @@ adb get-state
 
 可能返回：
 
-```text
+```
 device
 offline
 unknown
@@ -102,7 +106,7 @@ adb reconnect device
 adb reconnect offline
 ```
 
----
+***
 
 ## 2. 多设备指定
 
@@ -139,7 +143,7 @@ adb -e <command>
 adb -s <serial> <command>
 ```
 
----
+***
 
 ## 3. 无线调试 / TCP 连接
 
@@ -186,7 +190,7 @@ adb shell ifconfig wlan0
 adb usb
 ```
 
----
+***
 
 ## 4. Shell 相关
 
@@ -224,7 +228,7 @@ adb unroot
 adb remount
 ```
 
----
+***
 
 ## 5. 文件传输
 
@@ -271,7 +275,7 @@ adb shell ls -la /sdcard/
 adb shell cat /sdcard/test.txt
 ```
 
----
+***
 
 ## 6. APK 安装与卸载
 
@@ -323,7 +327,7 @@ adb uninstall <package_name>
 adb uninstall -k <package_name>
 ```
 
----
+***
 
 ## 7. 应用包管理 pm
 
@@ -419,7 +423,7 @@ adb shell pm grant com.example.app android.permission.CAMERA
 adb shell pm revoke <package_name> <permission>
 ```
 
----
+***
 
 ## 8. 启动 Activity / Service / Broadcast
 
@@ -497,7 +501,7 @@ adb shell am force-stop <package_name>
 adb shell am kill <package_name>
 ```
 
----
+***
 
 ## 9. 输入模拟 input
 
@@ -558,7 +562,7 @@ adb shell input keyevent 187    # 最近任务
 adb shell input keyevent 224    # 点亮屏幕 / WAKEUP
 ```
 
----
+***
 
 ## 10. 截图与录屏
 
@@ -606,7 +610,7 @@ adb shell screenrecord --size 720x1280 /sdcard/demo.mp4
 adb shell screenrecord --bit-rate 4000000 /sdcard/demo.mp4
 ```
 
----
+***
 
 ## 11. 日志 logcat
 
@@ -642,7 +646,7 @@ adb logcat *:E
 
 日志级别：
 
-```text
+```
 V = Verbose
 D = Debug
 I = Info
@@ -678,7 +682,7 @@ adb shell pidof <package_name>
 adb logcat --pid=<pid>
 ```
 
----
+***
 
 ## 12. dumpsys 系统信息
 
@@ -773,7 +777,7 @@ adb shell dumpsys notification
 adb shell dumpsys alarm
 ```
 
----
+***
 
 ## 13. 设备信息查询
 
@@ -855,7 +859,7 @@ adb shell wm density 420
 adb shell wm density reset
 ```
 
----
+***
 
 ## 14. 网络相关
 
@@ -914,7 +918,7 @@ adb shell settings put global airplane_mode_on 0
 adb shell am broadcast -a android.intent.action.AIRPLANE_MODE --ez state false
 ```
 
----
+***
 
 ## 15. 端口转发
 
@@ -973,7 +977,7 @@ adb reverse --remove tcp:8081
 adb reverse --remove-all
 ```
 
----
+***
 
 ## 16. Bugreport / 诊断
 
@@ -1014,7 +1018,7 @@ adb root
 adb pull /data/tombstones .
 ```
 
----
+***
 
 ## 17. 进程与性能
 
@@ -1055,13 +1059,13 @@ adb shell dumpsys meminfo <package_name>
 adb shell ps -T -p <pid>
 ```
 
----
+***
 
 ## 18. settings 系统设置
 
 Android 设置分为三类：
 
-```text
+```
 system
 secure
 global
@@ -1117,7 +1121,7 @@ adb shell settings put system screen_off_timeout 600000
 adb shell settings put global stay_on_while_plugged_in 3
 ```
 
----
+***
 
 ## 19. 常亮 / 不息屏设置
 
@@ -1129,7 +1133,7 @@ adb shell settings put global stay_on_while_plugged_in 3
 
 含义：
 
-```text
+```
 0 = 关闭
 1 = 仅 AC 充电器
 2 = 仅 USB 充电
@@ -1150,7 +1154,7 @@ adb shell settings put system screen_off_timeout 86400000
 
 单位是毫秒：
 
-```text
+```
 60000    = 1 分钟
 300000   = 5 分钟
 600000   = 10 分钟
@@ -1209,7 +1213,7 @@ adb shell settings get system screen_off_timeout
 
 如果返回：
 
-```text
+```
 3
 86400000
 ```
@@ -1218,7 +1222,7 @@ adb shell settings get system screen_off_timeout
 
 > 注意：部分厂商 ROM、省电策略、企业管控系统可能会在开机后重置这些配置。
 
----
+***
 
 ## 20. 电源与重启
 
@@ -1252,7 +1256,7 @@ adb shell reboot -p
 adb shell input keyevent 26
 ```
 
----
+***
 
 ## 21. Fastboot 相关
 
@@ -1296,7 +1300,7 @@ fastboot flashing unlock
 
 > ⚠️ 解锁 bootloader 通常会清空设备数据，请谨慎操作。
 
----
+***
 
 ## 22. SQLite 数据库
 
@@ -1323,7 +1327,7 @@ adb shell run-as <package_name> cp /data/data/<package_name>/databases/app.db /s
 adb pull /sdcard/app.db .
 ```
 
----
+***
 
 ## 23. run-as 调试应用数据
 
@@ -1348,7 +1352,7 @@ adb shell run-as <package_name> cp files/test.txt /sdcard/test.txt
 adb pull /sdcard/test.txt .
 ```
 
----
+***
 
 ## 24. UI 自动化辅助
 
@@ -1383,7 +1387,7 @@ adb shell monkey -p <package_name> 1000
 adb shell monkey -p <package_name> -s 12345 1000
 ```
 
----
+***
 
 ## 25. 剪贴板
 
@@ -1397,7 +1401,7 @@ adb shell am broadcast -a clipper.set -e text "hello"
 
 > Android 10+ 建议通过输入法、测试工具或自动化框架处理剪贴板。
 
----
+***
 
 ## 26. 模拟 GPS / 定位
 
@@ -1415,7 +1419,7 @@ adb emu geo fix <longitude> <latitude>
 adb emu geo fix 116.397 39.908
 ```
 
----
+***
 
 ## 27. 模拟器 adb emu
 
@@ -1457,7 +1461,7 @@ adb emu gsm call 10086
 adb emu gsm cancel 10086
 ```
 
----
+***
 
 ## 28. 权限与 AppOps
 
@@ -1485,7 +1489,7 @@ adb shell appops set <package_name> <OP_NAME> deny
 adb shell appops set <package_name> ACCESS_BACKGROUND_LOCATION allow
 ```
 
----
+***
 
 ## 29. 存储相关
 
@@ -1514,7 +1518,7 @@ adb shell ls /sdcard
 adb shell ls /storage/emulated/0
 ```
 
----
+***
 
 ## 30. 账号、用户、多用户
 
@@ -1542,7 +1546,7 @@ adb shell am switch-user <user_id>
 adb shell pm remove-user <user_id>
 ```
 
----
+***
 
 ## 31. 常用组合命令
 
@@ -1598,7 +1602,7 @@ adb shell pm path <package_name>
 adb pull <apk_path> .
 ```
 
----
+***
 
 ## 32. 常见问题处理
 
@@ -1645,7 +1649,7 @@ Linux 可能需要配置 udev 规则。
 adb install -r -d app.apk
 ```
 
-### 安装失败：INSTALL_FAILED_UPDATE_INCOMPATIBLE
+### 安装失败：INSTALL\_FAILED\_UPDATE\_INCOMPATIBLE
 
 通常是签名不一致，需要卸载旧版：
 
@@ -1665,7 +1669,7 @@ adb remount
 
 或者应用必须是 `debuggable=true` 才能使用 `run-as`。
 
----
+***
 
 ## 33. 最常用 20 条
 
@@ -1692,7 +1696,7 @@ adb shell dumpsys window | grep mCurrentFocus
 adb reboot
 ```
 
----
+***
 
 ## 附录：快速常亮配置
 
