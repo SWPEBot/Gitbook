@@ -62,9 +62,14 @@ repo sync -c xxxxx/xxxxx/xxxxx
 
 Ex: repo sync -c external/libtextclassifier -j1 repo sync -c external/libsrtp2 -j1
 ```
-
-
-
+6. 暂存factory app code
+```bash
+cd aluminium/vendor/google_shared/packages/desktop/Factory
+git stash -u
+# Saved working directory and index state WIP on (no branch): df10a8b Sync factory project from google3
+# 拉取新的code之后恢复git
+git stash pop
+```
 ## ADB连接DUT
 
 ```sh
