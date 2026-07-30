@@ -1,21 +1,5 @@
 # Hardware Descriptor DVT
 
----
-
-## 译本说明
-
-- **专业术语**：保留 Google / Aluminium 官方英文名，并附国内产线常用中文解释。  
-- **代码 / 字段 / Action 名**：保持英文原样（如 `HwDescProbeProvision`、`google.mlb_pn`）。  
-- **适用范围**：仅适用于 **Aluminium 第一波机型的 DVT 工厂 build**；后续工厂版本可能有调整。
-
----
-
-## 目标读者
-
-- 负责 Aluminium 设备的 **ODM 伙伴**
-- 与相关 ODM 紧密协作的 **Google 相关方（stakeholders）**
-
----
 
 ## 一、背景（Background）
 
