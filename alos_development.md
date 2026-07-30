@@ -34,6 +34,7 @@ REPO_ALLOW_SHALLOW=0 repo init -c -u https://arsp.googlesource.com/platform/mani
 REPO_ALLOW_SHALLOW=0 repo init -c -u https://arsp.googlesource.com/platform/manifest/device/${BOARD} --partial-clone --clone-filter=blob:limit=10M -b refs/buildid/XXXXXXXX
 ```
 [xxxxxx为ID](https://arsp.googlesource.com/platform/manifest/device/ocicat)
+
 4. ln -sf vendor/google/desktop/dev/kernel/replace_prebuilts.py
 
 ```bash
