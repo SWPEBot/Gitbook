@@ -1,7 +1,7 @@
-# Chromium OS Study Notes
+# Chromium/Aluminium OS Study Notes
 
-_Version: v2025._
+_Version: v2026._
 
 ## Introduction
 
-The document currently only contains Chromium developer study notes 📚 For internal use only
+The document currently only contains developer study notes 📚 For internal use only
