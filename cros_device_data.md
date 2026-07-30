@@ -26,6 +26,7 @@ factory device-data
 
 ```bash
 factory device-data vpd.ro.region=us
+factory device-data --set-yaml {file}
 ```
 
 ## 手动清除 device data 中项目
