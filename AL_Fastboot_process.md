@@ -1,4 +1,4 @@
-## Install Dome for android project
+# Fastboot process guide
 
 1. follow install docker 
 ```bash
