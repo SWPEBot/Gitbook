@@ -69,6 +69,7 @@ git stash -u
 # Saved working directory and index state WIP on (no branch): df10a8b Sync factory project from google3
 # 拉取新的code之后恢复git
 git stash pop
+# 或者使用VS Code 应用去暂存
 ```
 ## ADB连接DUT
 
