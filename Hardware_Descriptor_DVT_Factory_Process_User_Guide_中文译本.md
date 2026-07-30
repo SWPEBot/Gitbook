@@ -1,12 +1,5 @@
 # Hardware Descriptor DVT
 
-> **原文标题**：[EXTERNAL] Hardware Descriptor DVT Factory Process User Guide  
-> **状态**：Ready for publish  
-> **作者**：Clark Chung, Yong Hong, lt-hw-identification@google.com  
-> **最后更新**：2026-03-10  
-> **页数**：37  
-> **说明**：本文档为外部共享（SHARED EXTERNALLY），可与 ODM 等外部伙伴共享。
-
 ---
 
 ## 译本说明
