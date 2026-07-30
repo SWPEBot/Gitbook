@@ -154,10 +154,10 @@ export ANDROID_HOME=/home/lyn/Android/Sdk
 export ANDROID_HOME=/path/to/your/android/sdk
 export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 ```
-## 生成APK签名密钥
-By default, Soong signs platform applications with the key located in
+_## 生成APK签名密钥_
+_By default, Soong signs platform applications with the key located in
 ``$PDK_ROOT/build/target/product/security/``. The following commands generate the
-keystore for Gradle as $PATH_OF_OUTPUT_KEYSTORE_FILE:
+keystore for Gradle as $PATH_OF_OUTPUT_KEYSTORE_FILE:_
 ```sh
 $ openssl pkcs8 -inform DER -nocrypt -in $PDK_ROOT/build/target/product/security/platform.pk8 -out platform.key
 $ openssl pkcs12 -export -in ~/aluminiumos/build/target/product/security/platform.x509.pem -inkey platform.key -out platform.p12 -name AndroidDebugKey -password pass:android
@@ -170,12 +170,12 @@ $ keytool -importkeystore \
 -srcstorepass android \
 -alias AndroidDebugKey
 ```
-**预期输出**:
+_**预期输出**:_
 
-``Importing keystore platform.p12 to /home/lyn/aluminiumos/test/ocicat_key...``
+_``Importing keystore platform.p12 to /home/lyn/aluminiumos/test/ocicat_key...``_
 
 
-## 创建local.properties
+_## 创建local.properties_
 touch ``$PDK_ROOT/vendor/google_shared/packages/desktop/Factory/factory/local.properties``
 0325 存在文件，可直接编辑如下
 ```sh
@@ -183,7 +183,14 @@ Example:
 sdk.dir=/home/lyn/Android/Sdk
 keystorePath=$PDK_ROOT/vendor/google/certs/devkeys/platform.keystore
 ```
-keystorePath 跟随生成APK签名密钥的**OUTPUT_KEYSTORE_FILE**
+_keystorePath 跟随生成APK签名密钥的**OUTPUT_KEYSTORE_FILE**_
+
+**最新 APK build 可以自动寻找签名密钥**
+
+```bash
+w: file:///home/lyn/aluminium/vendor/google_shared/packages/desktop/Factory/factory/app/build.gradle.kts:396:17: 'exec(Action<in ExecSpec!>!): ExecResult!' is deprecated. Deprecated in Java
+/home/lyn/aluminium/vendor/google/certs/devkeys/platform.keystore is used as keystore.
+```
 
 
 ## Android Studio 
