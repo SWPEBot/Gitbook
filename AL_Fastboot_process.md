@@ -64,8 +64,11 @@ fastboot -s tcp:{ip}:5554 oem write-ufs-descriptor:1,0
 ......Reboot DUT
 ```
 **broadcastPing**: 添加网卡名例如enp130s0 网卡网关例如10.17.5.255
-**clearSecureStorage**: 清除桌面安全数据针对OOBE重新安装 desktop_security_storage，desktop_security_persist 
-**limitConcurrency**:  将此值设置为 10 可确保最多 10 个 DUT 同时运行刷写任务从而有助于防止严重的交换机缓冲区溢出和 TCP 数据包丢失。任何其他 DUT 都将保留在队列中，直到当前任务完成。
+
+**clearSecureStorage**: 清除桌面安全数据针对OOBE重新安装 desktop_security_storage，desktop_security_persist
+
+**limitConcurrency**:  将此值设置为 10 可确保最多 10 个 DUT 同时运行刷写任务从而有助于防止严重的交换机缓冲区溢出和 TCP 数据包丢失。任何其他 DUT 都将保留在队列中，直到当前任务完成
+
 **umpireGrpc**: 默认关闭，必须开启用于同步服务器数据
 
 - log path：/cros_docker/umpire/{project_name}/log/fastboot_service.log
