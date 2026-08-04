@@ -6,6 +6,7 @@
 * [Android Studio User Guide](android_studio_guide.md)
 * [Fastboot Process Guide](AL_Fastboot_process.md)
 * [Hardware Descriptor Guide](Hardware_Descriptor_DVT_Factory_Process_User_Guide_中文译本.md)
+* [UFSC_Configuration](UFSC_Configuration.md)
 * [Factory Learning Notes](LearningNotes.md)
 * [ChromeOS Check Hardware](check_hardware.md)
 * [Linux Samba Server](configuration_samba_server.md)
