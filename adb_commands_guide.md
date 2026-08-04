@@ -26,7 +26,7 @@ icon: right-long
 * [14. 网络相关](adb_commands_guide.md#14-网络相关)
 * [15. 端口转发](adb_commands_guide.md#15-端口转发)
 * [16. Bugreport / 诊断](adb_commands_guide.md#16-bugreport--诊断)
-* [17. 进程与性能](adb_commands_guide.md#17-进程与性能)
+* [17. 进程与性能](#17-进程与性能)
 * [18. settings 系统设置](adb_commands_guide.md#18-settings-系统设置)
 * [19. 常亮 / 不息屏设置](adb_commands_guide.md#19-常亮--不息屏设置)
 * [20. 电源与重启](adb_commands_guide.md#20-电源与重启)
