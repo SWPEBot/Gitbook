@@ -1,6 +1,6 @@
 # Fastboot process guide
 
-1. follow install docker 
+## follow install docker 
 ```bash
 ./cros_docker update
 ./cros_docker pull
@@ -15,6 +15,7 @@
 - ``android_preflash_image`` from image_tool.py built
 - ``gpt_bin`` from image_tool.py built
 - ``ota_zip`` from [andorid ci](ci.andorid.com)
+**build preflash img
 ```bash
 ./tools/image_tool.py  -d ./android-desktop_image.bin -o ./preflash.img -t ./ocicat-ota.zip -g ./gpt.bin --factory_config ./tools/proto/factory_config.txtpb --preload_partition_zip ./ocicat-img.zip --gpt_sector_size 4096 --factory_app {factoryapp}
 ```
