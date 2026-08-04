@@ -19,15 +19,15 @@ UFSC 的主要目标是：
 
 | Field Name	          | Target DWORD	| Bit Range |	Extracted Binary	| Integer Value | Matched Component / Probe      |
 |-----------------------|---------------|-----------|-------------------|---------------|--------------------------------|
-| AUDIO_CODEC	          | DWORD 0	      |  0..2	    |   001₂	              1	          |    ALC3343 (Audio Codec)       |
-| AUDIO_AMPLIFIER	      | DWORD 0	      |  3..5	    |   001₂	              1	          |    ALC1320 (Speaker Amp)       |
-| STORAGE_TYPE	        | DWORD 0	      |  12..14	  |   001₂	              1           |    VME (Storage Type)          |
-| SENSOR_HUB	          | DWORD 0	      |  23..23	  |   1₂	                1	          |    PRESENT (ISH_PRESENT)       |
-| FINGERPRINT_INTERFACE |	DWORD 0	      |  24..25	  |   00₂	                0	          |    ABSENT                      |
-| WIFI_INTERFACE	      | DWORD 0	      |  26..27	  |   00₂	                0	          |    ABSENT                      |
-| FORM_FACTOR	          | DWORD 0	      |  30..31	  |   10₂	                2	          |    CONVERTIBLE (Form Factor)   |
-| KB_BACKLIGHT	        | DWORD 1	      |  11..11	  |   1₂	                1	          |    PRESENT (Keyboard Backlight)|
-| KEYBOARD_LAYOUT	      | DWORD 1	      |  13..15	  |   000₂	              0	          |    AEZDQU01010 / SF03P_C33YWL  |
-| AP_OEM_2BIT_FIELD0	  | DWORD 1	      |  27..28	  |   01₂	                1	          |    USB3C (IO_BOARD_USB3C)      |
-| LID_SENSOR	          | DWORD 2	      |  13..15	  |   001₂	              1	          |    LIS2DH12 (Lid Accelerometer)|
-| BASE_SENSOR	          | DWORD 2	      |  16..18	  |   001₂	              1	          |   LIS2DW12 (Base Accelerometer)|
+| AUDIO_CODEC	          | DWORD 0	      |  0..2	    |   001₂	          |    1	          |    ALC3343 (Audio Codec)       |
+| AUDIO_AMPLIFIER	      | DWORD 0	      |  3..5	    |   001₂	          |    1	          |    ALC1320 (Speaker Amp)       |
+| STORAGE_TYPE	        | DWORD 0	      |  12..14	  |   001₂	          |    1           |    VME (Storage Type)          |
+| SENSOR_HUB	          | DWORD 0	      |  23..23	  |   1₂	            |    1	          |    PRESENT (ISH_PRESENT)       |
+| FINGERPRINT_INTERFACE |	DWORD 0	      |  24..25	  |   00₂	            |    0	          |    ABSENT                      |
+| WIFI_INTERFACE	      | DWORD 0	      |  26..27	  |   00₂	            |    0	          |    ABSENT                      |
+| FORM_FACTOR	          | DWORD 0	      |  30..31	  |   10₂	            |    2	          |    CONVERTIBLE (Form Factor)   |
+| KB_BACKLIGHT	        | DWORD 1	      |  11..11	  |   1₂	            |    1	          |    PRESENT (Keyboard Backlight)|
+| KEYBOARD_LAYOUT	      | DWORD 1	      |  13..15	  |   000₂	          |    0	          |    AEZDQU01010 / SF03P_C33YWL  |
+| AP_OEM_2BIT_FIELD0	  | DWORD 1	      |  27..28	  |   01₂	            |    1	          |    USB3C (IO_BOARD_USB3C)      |
+| LID_SENSOR	          | DWORD 2	      |  13..15	  |   001₂	          |    1	          |    LIS2DH12 (Lid Accelerometer)|
+| BASE_SENSOR	          | DWORD 2	      |  16..18	  |   001₂	          |    1	          |   LIS2DW12 (Base Accelerometer)|
