@@ -1,6 +1,6 @@
 # Fastboot process guide
 
-## follow install docker 
+## Install the latest Dome server
 ```bash
 ./cros_docker update
 ./cros_docker pull
@@ -15,13 +15,13 @@
 - ``android_preflash_image`` from image_tool.py built
 - ``gpt_bin`` from image_tool.py built
 - ``ota_zip`` from [andorid ci](ci.andorid.com)
-**build preflash img
+**build preflash img**
 ```bash
 ./tools/image_tool.py  -d ./android-desktop_image.bin -o ./preflash.img -t ./ocicat-ota.zip -g ./gpt.bin --factory_config ./tools/proto/factory_config.txtpb --preload_partition_zip ./ocicat-img.zip --gpt_sector_size 4096 --factory_app {factoryapp}
 ```
 目前只能逐个文件上传，无法 bundle 方式完成
 
-## Set fastboot Service
+## Set Fastboot Service
 **dutipaddrs:** 填写fastboot 需要扫描的 IP 地址。此字段接受单个 IP 地址或 CIDR 范围
 ## 常见的CIDR      - IP计算方式: ipv4 一共32位  IP个数2^(32-CIDR)  例如 2^(32-24)=256
 | CIDR | 主机位 | 地址总数  |
@@ -64,6 +64,7 @@ fastboot -s tcp:{ip}:5554 oem write-ufs-descriptor:1,0
 ```
 **broadcastPing**: 添加网卡名例如enp130s0 网卡网关例如10.17.5.255
 **clearSecureStorage**: 清除桌面安全数据针对OOBE重新安装 desktop_security_storage，desktop_security_persist 
+**limitConcurrency**:  将此值设置为 10 可确保最多 10 个 DUT 同时运行刷写任务从而有助于防止严重的交换机缓冲区溢出和 TCP 数据包丢失。任何其他 DUT 都将保留在队列中，直到当前任务完成。
 **umpireGrpc**: 默认关闭，必须开启用于同步服务器数据
 
 - log path：/cros_docker/umpire/{project_name}/log/fastboot_service.log
