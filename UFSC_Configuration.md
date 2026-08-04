@@ -18,6 +18,7 @@ UFSC 的主要目标是：
 
 
 | Field Name	          | Target DWORD	| Bit Range |	Extracted Binary	| Integer Value | Matched Component / Probe      |
+|-----------------------|---------------|-----------|-------------------|---------------|--------------------------------|
 | AUDIO_CODEC	          | DWORD 0	      |  0..2	    |   001₂	              1	          |    ALC3343 (Audio Codec)       |
 | AUDIO_AMPLIFIER	      | DWORD 0	      |  3..5	    |   001₂	              1	          |    ALC1320 (Speaker Amp)       |
 | STORAGE_TYPE	        | DWORD 0	      |  12..14	  |   001₂	              1           |    VME (Storage Type)          |
