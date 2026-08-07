@@ -35,7 +35,9 @@ scrcpy --turn-screen-off
 ```bash
 adb shell dumpsys window | grep mCurrentFocus
 output:mCurrentFocus=Window{f0d842c u10 com.google.android.factory.factory/com.google.android.factory.factory.FactoryMainActivity}
-例如:com.google.android.factory.factory
+
+通过关键词搜寻
+adb shell pm list packages | grep -i 'terminal'
 ```
 
 ### 禁用应用
@@ -47,4 +49,19 @@ adb shell pm disable-user --user 10 com.google.android.googlequicksearchbox
 ```bash
 adb shell pm enable --user 10 com.google.android.factory.factory
 ```
+
+### 清除数据
+```bash
+adb shell pm clear --user 10 com.google.android.factory.factory
+
+rm -rf /data/user_de/10/com.google.android.factory.factory/file/xxxxx 
+```
+
+### 获取屏幕分辨率
+```bash
+adb shell wm size
+```
+- Physical size：物理屏幕原始分辨率
+- Override size：当前覆盖/修改后的分辨率（如果用户或应用修改过）
+ 
 
