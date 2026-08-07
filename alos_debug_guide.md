@@ -1,6 +1,6 @@
 # ALOS常用的调试方法
 
-## Get system log
+## 获取系统日志
 ```bash
 # on the host use
 adb bugreport filename.zip
