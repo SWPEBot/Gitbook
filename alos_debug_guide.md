@@ -34,6 +34,17 @@ scrcpy --turn-screen-off
 ### 获取无法确认的包名
 ```bash
 adb shell dumpsys window | grep mCurrentFocus
-output:mCurrentFocus=Window{f0d842c u10 com.google.android.factory.factory/``com.google.android.factory.factory.Factory``MainActivity}
+output:mCurrentFocus=Window{f0d842c u10 com.google.android.factory.factory/com.google.android.factory.factory.FactoryMainActivity}
+例如:com.google.android.factory.factory
+```
+
+### 禁用应用
+```bash
+adb shell pm disable-user --user 10 com.google.android.googlequicksearchbox
+```
+
+### 启动应用
+```bash
+adb shell pm enable --user 10 com.google.android.factory.factory
 ```
 
