@@ -10,7 +10,7 @@ bugreportz
 ```
 ## Logcat
 
-### 抓取factory日志
+### 抓取应用实时日志
 ```bash
 adb logcat --pid=$(adb shell pidof com.google.android.factory.factory) -v color
 ```
