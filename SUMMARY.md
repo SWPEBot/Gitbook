@@ -5,7 +5,7 @@
 * [ADB 常用指令完整速查手册](adb_commands_guide.md)
 * [Android Studio User Guide](android_studio_guide.md)
 * [Fastboot Process Guide](AL_Fastboot_process.md)
-* [ALOS_Debug_Guide](alos_debug_guide.md)
+* [ALOS Debug Guide](alos_debug_guide.md)
 * [Hardware Descriptor Guide](Hardware_Descriptor_DVT_Factory_Process_User_Guide_中文译本.md)
 * [UFSC Configuration](UFSC_Configuration.md)
 * [Factory Learning Notes](LearningNotes.md)
