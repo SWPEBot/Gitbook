@@ -74,5 +74,24 @@ adb shell wm size
 ```
 - Physical size：物理屏幕原始分辨率
 - Override size：当前覆盖/修改后的分辨率（如果用户或应用修改过）
+
+### WIFI/BT 调试
+```bash
+# 开启WIFI
+adb shell cmd wifi set-wifi-enabled enabled
+
+# 扫描WIFI
+adb shell cmd wifi start-scan
+
+# 查看搜索结果
+adb shell cmd wifi list-scan-results
+
+# 查看蓝牙信息
+adb shell dumpsys bluetooth_manager
+
+# 重启蓝牙生效
+adb shell svc bluetooth disable
+adb shell svc bluetooth enable
+
  
 
