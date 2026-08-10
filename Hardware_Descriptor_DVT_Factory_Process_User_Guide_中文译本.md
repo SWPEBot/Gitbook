@@ -7,7 +7,7 @@
 
 **Hardware Descriptor（硬件描述符）**
 
-简单理解：它是写入 **VPD** 里的一段「本机实际装了哪些关键料」的编码信息。  
+简单理解：它是写入 **VPD** 里的一段「本机实际装了哪些关键材料」的编码信息。  
 要在工厂端正确 **生成 → 写入 → 校验** 这台 **DUT** 的 Hardware Descriptor，必须按本文规定的工厂流程执行。
 
 ---
@@ -100,7 +100,8 @@ Device（机型项目）
 
 ### 6.1 流程开始前
 
-先按 **SDT / PSE / SIE** 既定流程，向 Google 侧拿到该机型的 mapping table（`.txtpb` 文件）。
+先按 **SDT / PSE / SIE** 既定流程，向 Google 拿到该机型的 mapping table（`.txtpb` 文件）。
+每个阶段最终版 google 会长传 [device/google/desktop/{device_name}/hardware_descriptor](https://arsp.googlesource.com/device/google/desktop/moonstone/+/refs/heads/main/hardware_descriptor/mapping_table.txtpb)
 
 ### 6.2 准备：Action List 编排
 
@@ -522,20 +523,6 @@ PVT/MP 批准尚未就绪时，可对 **`HwDescVerify`** 设置：
    - 批准条件：**(A)** non-identifiable **或** 已 identified；且 **(B)** 通过 AVL，`grant PVT/MP usage approval = yes`  
    - 可同时看实际 probe 结果  
 
----
-
-## 十、文档修订历史（Document history）
-
-| 日期 | 变更 |
-|------|------|
-| 2026-03-10 | 增加从 factory drive 下载 mapping table 的方式 |
-| 2026-02-11 | 更新为 DVT 工厂流程 |
-| 2025-11-26 | 修复失效或外部链接 |
-| 2025-11-18 | 准备发布 |
-| 2025-11-07 | 修正 side-load mapping table 时 APK 编译错误的 workaround |
-| 2025-10-30 | 初版 |
-
----
 
 ## 附录 A：把 mapping table 打进 Factory App asset
 
