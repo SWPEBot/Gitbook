@@ -101,7 +101,8 @@ Device（机型项目）
 ### 6.1 流程开始前
 
 先按 **SDT / PSE / SIE** 既定流程，向 Google 拿到该机型的 mapping table（`.txtpb` 文件）。
-每个阶段最终版 google 会长传 [device/google/desktop/{device_name}/hardware_descriptor](https://arsp.googlesource.com/device/google/desktop/moonstone/+/refs/heads/main/hardware_descriptor/mapping_table.txtpb)
+
+每个阶段最终版 google 创建CL  [device/google/desktop/{device_name}/hardware_descriptor](https://arsp.googlesource.com/device/google/desktop/moonstone/+/refs/heads/main/hardware_descriptor/mapping_table.txtpb)
 
 ### 6.2 准备：Action List 编排
 
