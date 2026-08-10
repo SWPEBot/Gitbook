@@ -25,6 +25,11 @@ adb logcat --pid=$(adb shell pidof com.google.android.factory.factory) -v color
 ```bash
 adb logcat -c
 ```
+
+### 恢复出厂设置
+```bash
+adb shell cmd recovery wipe
+```
 ## scrcpy (screen copy) 实时控制Android设备屏幕
 
 ### 录制屏幕
