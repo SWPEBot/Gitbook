@@ -7,7 +7,13 @@ adb bugreport filename.zip
 # on the dut use
 bugreportz
 默认生成路径:/data/user_de/0/com.android.shell/file/bugreports/xxxxxxxxxxxxx.zip
+
 ```
+### 获取系统属性
+```bash
+adb shell getprop
+```
+
 ## Logcat
 
 ### 抓取应用实时日志
