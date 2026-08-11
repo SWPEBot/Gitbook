@@ -3,7 +3,7 @@
 
 ## 一、背景（Background）
 
-在制造一台 Aluminium 设备（unit）时，有一项**必须写入（provision）并校验（verify）**的关键值，叫做：
+Aluminium device，测试项目有一项**必须写入（provision）并校验（verify）**的关键值，叫做：
 
 **Hardware Descriptor（硬件描述符）**
 
@@ -12,21 +12,8 @@
 
 ---
 
-## 二、目标（Objective）
 
-本文希望帮助读者：
-
-1. 了解 Factory App 如何 **provision** Hardware Descriptor。  
-2. 学会搭建环境，以支持 **Hardware Descriptor 写入**。  
-3. 学会搭建环境，以支持 **已写入 Hardware Descriptor 的校验**。  
-4. 在 Factory App 写入/校验失败时，能按错误做 **triage（问题分诊）**。  
-5. 针对每类失败，知道后续该怎么跟进、怎么修。
-
----
-
-## 三、不在本文范围内（Out-of-scope）
-
-本文只讲 **工厂端** 的 Hardware Descriptor 流程，**不覆盖**：
+## 二、获取mapping table来源
 
 1. ODM / 相关方如何向 Google 提交 manufacturing data（制造数据）与 key component（关键件）信息，作为 mapping table 的数据源。  
 2. ODM 工厂如何从 Google 获取该机型的 Hardware Descriptor mapping table 文件。  
@@ -34,7 +21,7 @@
 
 ---
 
-## 四、前置条件（Prerequisite）
+## 三、前置条件
 
 1. 熟悉 **Factory App Development Workflow**（Factory App 开发工作流）。  
 2. 确认 git 仓库 `vendor/google_devices/release/desktop` 至少包含 commit **`c0eb629`**，或 flag 版本不低于：  
@@ -44,9 +31,9 @@
 
 ---
 
-## 五、术语表（Terminology）
+## 四、术语表（Terminology）
 
-### 5.1 设备工作流相关
+### 4.1 设备工作流相关
 
 | 英文术语 | 中文理解 | 说明 |
 |---------|---------|------|
@@ -63,7 +50,7 @@ Device（机型项目）
         └── Unit / DUT（单台机器）
 ```
 
-### 5.2 制造数据相关
+### 4.2 制造数据相关
 
 | 英文术语 | 中文理解 | 说明 |
 |---------|---------|------|
@@ -75,7 +62,7 @@ Device（机型项目）
 | **Component type** | 部件类型 | 规范类型，如 `"eDP Panel"`、`"Battery pack"`。一个 key component 可对应一个或多个 component type（例如同时是 eDP Panel + Touchscreen）。 |
 | **Part number (PN)** | 料号 | ODM 为关键件或 PCBA 分配的料号。 |
 
-### 5.3 硬件识别相关
+### 4.3 硬件识别相关
 
 | 英文术语 | 中文理解 | 说明 |
 |---------|---------|------|
@@ -84,7 +71,7 @@ Device（机型项目）
 
 **例子**：UFS 存储 `KLUDG4UHGC-B0E1` 可读出 Manufacturer Name / Product Name，与期望值（如 SAMSUNG + 型号）比对，即可识别是否装了该料。
 
-### 5.4 Hardware Descriptor 相关
+### 4.4 Hardware Descriptor 相关
 
 | 英文术语 | 中文理解 | 说明 |
 |---------|---------|------|
@@ -96,15 +83,27 @@ Device（机型项目）
 
 ---
 
-## 六、端到端工厂流程（End-to-end factory process）
+## 五、从Google获取mapping table
 
-### 6.1 流程开始前
+### 5.1 下载最新mapping table APK
 
-先按 **SDT / PSE / SIE** 既定流程，向 Google 拿到该机型的 mapping table（`.txtpb` 文件）。
+- 访问 https://ci.android.com
+- 输入分支名称: arsp-main
+- 选择目标： <your_device_name>-trunk_staging-userdebug
+- 点击 View artifact图标 选择 Build Artifacts
+- 搜索HardwareDescriptorMappingTable.apk ，然后从列表中选择它以下载映射表 APK 文件
 
-每个阶段最终版 google 创建CL  [device/google/desktop/{device_name}/hardware_descriptor](https://arsp.googlesource.com/device/google/desktop/moonstone/+/refs/heads/main/hardware_descriptor/mapping_table.txtpb)
+对应的创建CL  [device/google/desktop/{device_name}/hardware_descriptor](https://arsp.googlesource.com/device/google/desktop/moonstone/+/refs/heads/main/hardware_descriptor/mapping_table.txtpb)
 
-### 6.2 准备：Action List 编排
+### 5.2 重新签名本地 mapping table APK
+```bash
+ $ARSP_ROOT/vendor/google_shared/packages/desktop/Factory/factory/tools/mapping_table_tool \
+      re_sign \
+      --apk path/to/mapping_table_apk_downloaded_from_android_ci.apk \
+      --out_apk path/to/mapping_table_apk_for_dut.apk
+```
+
+### 5.3 准备：Action List 编排
 
 测试列表（action list）中必须包含：
 
@@ -136,7 +135,9 @@ Device（机型项目）
 
 > **试产（trial run）提示**：不必跑完整产线流。可按后文 **Development tips** 单独试跑这两个 action（手动写 VPD、手动填 device data 等）。
 
-### 6.3 准备：Side-load mapping table（侧载映射表）
+### 5.4 准备：Side-load mapping table（侧载映射表）
+
+###  最新方法：上传Mappiing_table.APK 到DOME
 
 #### 推荐方式：通过 DOME 从 Factory Drive 下载
 
@@ -249,7 +250,7 @@ subtests {
 
 ---
 
-### 6.4 制造：运行 `HwDescProbeProvision`（写入 Hardware Descriptor）
+### 5.4 制造：运行 `HwDescProbeProvision`（写入 Hardware Descriptor）
 
 - **全自动**，操作员无需交互。  
 - 会从 mapping table、device data、DUT 硬件自动收集信息，生成并 **provision 到 VPD**。  
@@ -261,7 +262,7 @@ subtests {
 
 ---
 
-### 6.5 制造：运行 `HwDescVerify`（校验已写入的 Hardware Descriptor）
+### 5.5 制造：运行 `HwDescVerify`（校验已写入的 Hardware Descriptor）
 
 - 同样 **全自动**。  
 - 综合 mapping table、device data、DUT 硬件，校验 VPD 中已写入的 Hardware Descriptor。  
@@ -270,7 +271,7 @@ subtests {
 
 ---
 
-## 七、错误分诊与后续处理（Error triage and follow-up）
+## 六、
 
 两个 action 都成功 → 整条 Hardware Descriptor 工厂流程完成。  
 任一失败 → 因是 **required action（必测）**，必须跟进修复。  
@@ -353,9 +354,28 @@ subtests {
 
 ---
 
+### APK 提取txtpb
+```bash
+$ARSP_ROOT/vendor/google_shared/packages/desktop/Factory/factory/tools/mapping_table_tool \
+    extract \
+    --apk path/to/mapping_table_apk_for_dut.apk \
+    --out_dir path/to/a/folder
+```
+
+### 打包txtpb到APK
+```bash
+mv "path/to/mapping_table_for_dut.apk" "path/to/mapping_table_for_dut_before_patch.apk"
+$ARSP_ROOT/vendor/google_shared/packages/desktop/Factory/factory/tools/mapping_table_tool \
+    add_patch \  # If the APK already contains a patch, use "update_patch" instead.
+    --apk "path/to/mapping_table_for_dut_before_patch.apk" \
+    --patch mapping_table_patch.txtpb \
+    --out_apk "mapping_table_for_dut.apk"
+```
+
+
 ## 八、调整工厂 Action 行为（Tuning）
 
-### 8.1 跳过某些 component type 的探测
+### 8.1 跳过某些 component type 的探测 (Only before PVT)
 
 若探测某类型导致：
 
