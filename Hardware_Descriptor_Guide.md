@@ -1,5 +1,6 @@
-# Hardware Descriptor DVT
+# Hardware Descriptor Guide
 
+[持续更新](https://docs.partner.android.com/aluminium/factory）
 
 ## 一、Background
 
@@ -660,27 +661,3 @@ option java_multiple_files = true;
 
 ---
 
-## 附录 F：可硬件探测的部件类型
-
-请在 Component Types 页面中，查看 **“HW desc probeability”** 列为 **Probeable** 的类型。
-
----
-
-## 快速对照：国内产线一句话记忆
-
-| 英文 | 一句话 |
-|------|--------|
-| Hardware Descriptor | 写进 VPD 的「本机装了哪些关键料」编码 |
-| Mapping table | Google 给的「BOM/SKU/可探测属性」总表（.txtpb/.binpb） |
-| Mapping table patch | 临时改探测期望值的补丁表（必须回报 Google） |
-| HwDescProbeProvision | 探测 + 算出制造信息 + 编码 + 写 VPD |
-| HwDescVerify | 读 VPD 里的描述符，对照表与实机做合规校验 |
-| Device data | Factory App 侧的本机运行时数据（phase、MLB PN、DB PNs 等） |
-| Shopfloor | 产线系统，常负责下发 SN/SKU/料号等到 device data |
-| Second-source | 二供；多候选时需 probe 或 additional_component_pns 才能唯一确定 |
-| Side-load | 不走 image 内置，而从 drive/asset 加载最新表 |
-| DOME / Factory Drive | 工厂侧文件分发机制与存储 |
-
----
-
-*译本基于 2026-03-10 版外部用户指南整理，便于 ODM / 工厂工程与 Google 术语对齐。具体以 Google 最新官方文档为准。*
