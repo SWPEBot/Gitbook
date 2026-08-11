@@ -1,7 +1,7 @@
 # Hardware Descriptor DVT
 
 
-## 一、背景（Background）
+## 一、Background
 
 Aluminium device，测试项目有一项**必须写入（provision）并校验（verify）**的关键值，叫做：
 
