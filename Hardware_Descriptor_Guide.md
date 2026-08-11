@@ -1,6 +1,6 @@
 # Hardware Descriptor Guide
 
-[持续更新](https://docs.partner.android.com/aluminium/factory）
+[持续更新](https://docs.partner.android.com/aluminium/factory)
 
 ## 一、Background
 
