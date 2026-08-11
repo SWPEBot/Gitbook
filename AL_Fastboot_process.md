@@ -1,4 +1,4 @@
-# Fastboot process guide
+# Fastboot Process Guide
 
 [参考Aluminium](https://docs.partner.android.com/aluminium/factory/factory-fastboot?hl=zh-cn)
 
