@@ -1,5 +1,7 @@
 # Fastboot process guide
 
+[参考Aluminium](https://docs.partner.android.com/aluminium/factory/factory-fastboot?hl=zh-cn)
+
 ## Install the latest Dome server
 ```bash
 ./cros_docker update
@@ -51,6 +53,8 @@ product: Ocicat
 ```
 
 **ufsProvision**: ufs storage 让设备读取 UFS descriptor,并把结果放进 staged 区,把 staged 区内容导出来
+- 启用此选项可根据被测设备 (DUT) 的 UFS 配置描述符版本执行通用闪存存储 (UFS) 配置。fastboot 服务首先进行配置，重启 DUT，然后开始刷写镜像
+- **支持的 UFS 版本**： 4.0、3.1 和 2.1
 ```bash
 fastboot -s tcp:{ip}:5554 oem read-ufs-descriptor:0.0
 fastboot -s tcp:{ip}:5554 get_staged /tmp/device_descriptor.bin
@@ -76,6 +80,7 @@ fastboot -s tcp:{ip}:5554 oem write-ufs-descriptor:1,0
 
 ## fastboot process
 - 进入bootloader: 首次开机若storage没有OS，则会自动进入fastboot mode，手动则需要按下``ctrl+f``
+- BIOS 必须设置VB2_GBB_FLAG_FORCE_UNLOCK_FASTBOOT (0x2000)
 - adb 方式
 ```bash
 adb reboot bootloader
