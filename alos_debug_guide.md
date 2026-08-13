@@ -15,6 +15,25 @@ adb shell getprop
 
 # 查看OS版本
 adb shell getprop ro.build.version.desktop_os
+
+# 查看 CPU 信息
+adb shell cat /proc/cpuinfo
+
+# 查看内存
+adb shell cat /proc/meminfo
+adb shell dumpsys meminfo com.example.app    # 应用内存详情
+
+# 查看电池状态
+adb shell dumpsys battery
+
+# 查看 CPU 使用率
+adb shell top -m 10 -s cpu        # CPU 占用 Top10
+adb shell dumpsys cpuinfo         # CPU 详细信息
+
+# 查看网络配置
+adb shell ifconfig
+adb shell ip addr
+
 ```
 
 ## Logcat
@@ -88,7 +107,11 @@ adb shell pm enable --user 10 com.google.android.factory.factory
 ```bash
 adb shell pm clear --user 10 com.google.android.factory.factory
 
-rm -rf /data/user_de/10/com.google.android.factory.factory/file/xxxxx 
+rm -rf /data/user_de/10/com.google.android.factory.factory/file/xxxxx
+
+# 导出应用 APK
+adb shell pm path com.example.app
+adb pull /data/app/xxx/base.apk ./app.apk
 ```
 
 ### 模拟输入(自动化测试必用)
@@ -122,6 +145,12 @@ adb shell wm size
 
 ### WIFI/BT 调试
 ```bash
+# 查看 Wi-Fi 信息
+adb shell dumpsys wifi
+
+# 查看网络连接
+adb shell netstat
+
 # 开启WIFI
 adb shell cmd wifi set-wifi-enabled enabled
 
@@ -187,5 +216,16 @@ adb shell dras_tool arecord --duration-sec 10 /sdcard/rec.wav
 # 播放音频
 adb shell dras_tool aplay /sdcard/rec.wav
 
+```
+
+### 无线调试
+```bash
+# 方式1：配对码方式（无需 USB）
+adb pair 192.168.1.100:42073      # 输入配对码
+adb connect 192.168.1.100:39111   # 连接
+
+# 方式2：传统方式（需先插 USB）
+adb tcpip 5555
+adb connect 192.168.1.100:5555
 ```
 
