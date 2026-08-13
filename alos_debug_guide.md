@@ -136,13 +136,6 @@ adb shell input keyevent 82    # 菜单键
 
 ```
 
-### 获取屏幕分辨率
-```bash
-adb shell wm size
-```
-- Physical size：物理屏幕原始分辨率
-- Override size：当前覆盖/修改后的分辨率（如果用户或应用修改过）
-
 ### WIFI/BT 调试
 ```bash
 # 查看 Wi-Fi 信息
@@ -169,6 +162,11 @@ adb shell svc bluetooth enable
 ```
 ### 屏幕操作
 ```bash
+# 获取分辨率
+adb shell wm size
+- Physical size：物理屏幕原始分辨率
+- Override size：当前覆盖/修改后的分辨率（如果用户或应用修改过）
+
 # 截图
 adb shell screencap /sdcard/screen.png
 adb pull /sdcard/screen.png ./screen.png
@@ -201,7 +199,7 @@ adb shell df -h
 adb shell ls -la /sdcard/
 ```
 
-### Audio Debug
+### Audio调试
 ```bash
 # 列出 ALSA 设备
 adb shell cat /proc/asound/cards
