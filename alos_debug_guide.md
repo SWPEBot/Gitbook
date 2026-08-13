@@ -12,6 +12,9 @@ bugreportz
 ### 获取系统属性
 ```bash
 adb shell getprop
+
+# 查看OS版本
+adb shell getprop ro.build.version.desktop_os
 ```
 
 ## Logcat
@@ -108,7 +111,6 @@ adb shell dras_tool arecord --duration-sec 10 /sdcard/rec.wav
 
 # 播放音频
 adb shell dras_tool aplay /sdcard/rec.wav
-
 
 ```
 
