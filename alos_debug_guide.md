@@ -19,14 +19,34 @@ adb shell getprop ro.build.version.desktop_os
 
 ## Logcat
 
-### 抓取应用实时日志
 ```bash
-adb logcat --pid=$(adb shell pidof com.google.android.factory.factory) -v color
-```
 
-### 清空Logcat日志
-```bash
+# 过滤指定包名（最实用）
+adb logcat --pid=$(adb shell pidof -s com.example.app)
+adb logcat --pid=$(adb shell pidof com.google.android.factory.factory) -v color
+
+# 实时查看日志
+adb logcat
+
+# 过滤指定 TAG
+adb logcat -s MyTag:D
+
+# 过滤指定级别以上
+adb logcat *:E          # 仅 Error 及以上
+adb logcat *:W          # Warning 及以上
+
+# 清空日志缓存
 adb logcat -c
+
+# 导出日志到文件
+adb logcat -d > log.txt
+adb logcat -v threadtime > log.txt   # 带线程和时间
+
+# 查看崩溃日志（crash）
+adb logcat -b crash
+
+# 查看内核日志
+adb shell dmesg
 ```
 
 ### 恢复出厂设置
@@ -71,6 +91,28 @@ adb shell pm clear --user 10 com.google.android.factory.factory
 rm -rf /data/user_de/10/com.google.android.factory.factory/file/xxxxx 
 ```
 
+### 模拟输入(自动化测试必用)
+```bash
+# 点击屏幕
+adb shell input tap 500 800
+
+# 滑动屏幕
+adb shell input swipe 300 1000 300 500    # 从下到上滑动
+adb shell input swipe 300 500 300 500 2000 # 长按 2 秒
+
+# 输入文字
+adb shell input text "HelloWorld"
+
+# 模拟按键
+adb shell input keyevent 3     # HOME 键
+adb shell input keyevent 4     # 返回键
+adb shell input keyevent 24    # 音量+
+adb shell input keyevent 25    # 音量-
+adb shell input keyevent 26    # 电源键
+adb shell input keyevent 82    # 菜单键
+
+```
+
 ### 获取屏幕分辨率
 ```bash
 adb shell wm size
@@ -95,6 +137,39 @@ adb shell dumpsys bluetooth_manager
 # 重启蓝牙生效
 adb shell svc bluetooth disable
 adb shell svc bluetooth enable
+```
+### 屏幕操作
+```bash
+# 截图
+adb shell screencap /sdcard/screen.png
+adb pull /sdcard/screen.png ./screen.png
+
+# 录屏（默认 3 分钟上限）
+adb shell screenrecord /sdcard/video.mp4
+adb shell screenrecord --time-limit 10 /sdcard/video.mp4   # 录 10 秒
+adb shell screenrecord --size 720x1280 /sdcard/video.mp4   # 指定分辨率
+adb shell screenrecord --bit-rate 4000000 /sdcard/video.mp4 # 4Mbps 码率
+
+# 修改屏幕分辨率（调试适配）
+adb shell wm size 1080x1920
+adb shell wm size reset        # 恢复默认
+
+# 修改 DPI
+adb shell wm density 320
+adb shell wm density reset
+```
+### 文件传输
+```bash
+# 推送到设备
+adb push local.txt /sdcard/
+
+# 从设备拉取
+adb pull /sdcard/file.txt ./
+adb pull /data/data/com.example.app/databases/ ./db/   # 需要 root
+
+# 查看设备存储
+adb shell df -h
+adb shell ls -la /sdcard/
 ```
 
 ### Audio Debug
