@@ -92,6 +92,23 @@ adb shell dumpsys bluetooth_manager
 # 重启蓝牙生效
 adb shell svc bluetooth disable
 adb shell svc bluetooth enable
+```
 
- 
+### Audio Debug
+```bash
+# 列出 ALSA 设备
+adb shell cat /proc/asound/cards
+adb shell cat /proc/asound/devices
+
+# 查看声卡信息
+adb shell dras_tool mixer-path-test
+
+# 录制10秒音频
+adb shell dras_tool arecord --duration-sec 10 /sdcard/rec.wav
+
+# 播放音频
+adb shell dras_tool aplay /sdcard/rec.wav
+
+
+```
 
