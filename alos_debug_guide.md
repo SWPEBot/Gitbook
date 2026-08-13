@@ -164,8 +164,6 @@ adb shell svc bluetooth enable
 ```bash
 # 获取分辨率
 adb shell wm size
-- Physical size：物理屏幕原始分辨率
-- Override size：当前覆盖/修改后的分辨率（如果用户或应用修改过）
 
 # 截图
 adb shell screencap /sdcard/screen.png
